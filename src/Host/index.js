@@ -1,17 +1,19 @@
 import React from "react";
+import GuestList from "./guests.js";
+import Invites from "./invites.js";
 
-const GuestList = () => (
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>RSVPd?</th>
-      <th>Coming?</th>
-      <th>Bring a guest?</th>
-      <th>Total No. Attending</th>
-    </tr>
-  </table>
-);
+export default class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
 
-const Dashboard = () => <GuestList />;
-
-export default Dashboard;
+  render() {
+    return (
+      <main>
+        <Invites data={this.props.invites} />
+        <GuestList data={this.props.guests} />
+      </main>
+    );
+  }
+}

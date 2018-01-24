@@ -41,7 +41,7 @@ class App extends Component {
                 <Dashboard invites={this.state.invites} guests={this.state.guests} />
               )}
             />
-            <Route path="/guest" component={() => <RSVP data={this.state.guests} />} />
+            <Route path="/guest" component={() => <RSVP data={this.state.invites} />} />
           </div>
         </Router>
         <Footer />

@@ -32,7 +32,7 @@ export default class DeleteInvite extends React.Component {
   }
 
   createInviteList(item) {
-    return <option>{item.name}</option>;
+    return <option id={item.id}>{item.name}</option>;
   }
 
   render() {
@@ -50,8 +50,10 @@ export default class DeleteInvite extends React.Component {
         >
           <h2>Remove a Guest</h2>
           <form id="delete-invite-form" onSubmit={this.props.remove}>
-            <label for="deleted-name">Find your name:</label>
-            <select>{this.props.data.map(this.createInviteList)}</select>
+            <label for="name">Find your name:</label>
+            <select id="delete-name" name="name">
+              {this.props.data.map(this.createInviteList)}
+            </select>
             <input type="submit" id="rsvp-button" value="Remove Guest" />
           </form>
           <button onClick={this.closeModal}>Cancel</button>

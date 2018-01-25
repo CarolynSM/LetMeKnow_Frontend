@@ -11,7 +11,7 @@ export default class RSVP extends React.Component {
   }
 
   createInviteList(item) {
-    return <option>{item.name}</option>;
+    return <option id={item.id}>{item.name}</option>;
   }
 
   render() {

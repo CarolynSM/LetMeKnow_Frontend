@@ -32,32 +32,12 @@ class App extends Component {
   getNewInvite() {
     var data = new FormData(document.querySelector("#new-invite-form"));
     return {
-      name: data.get("newinvite"),
+      name: data.get("name"),
       hasResponded: false,
       response: null,
       bringingGuest: null,
       numberAttending: 0
     };
-  }
-
-  getDeleteData() {
-    var data = new FormData(document.querySelector("#delete-invite-form"));
-    return {
-      name: data.get("deleted-name")
-    };
-  }
-
-  deleteInvite(event) {
-    event.preventDefault();
-    fetch("https://letmeknow-backend.herokuapp.com/invite/:id", {
-      method: "post",
-      body: JSON.stringify(this.getDeleteData()),
-      headers: new Headers({
-        "Content-Type": "application/json"
-      })
-    }).catch(err => {
-      console.log(err);
-    });
   }
 
   addNewInvite(event) {
@@ -68,9 +48,30 @@ class App extends Component {
       headers: new Headers({
         "Content-Type": "application/json"
       })
-    }).catch(err => {
-      console.log(err);
-    });
+    })
+      .then(() => this.componentDidMount())
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  getDeleteData() {
+    var name = document.querySelector("#delete-name");
+    return name.options[name.selectedIndex].id;
+  }
+
+  deleteInvite(event) {
+    event.preventDefault();
+    fetch("https://letmeknow-backend.herokuapp.com/invite/" + this.getDeleteData(), {
+      method: "delete",
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(() => this.componentDidMount())
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {

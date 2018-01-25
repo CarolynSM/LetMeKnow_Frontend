@@ -4,7 +4,6 @@ export default class Invites extends React.Component {
   constructor(props) {
     super(props);
     this.createInviteTable = this.createInviteTable.bind(this);
-    console.log(this.props);
   }
 
   createInviteTable(item) {

@@ -13,6 +13,8 @@ class App extends Component {
     this.state = {
       data: []
     };
+    this.addNewInvite = this.addNewInvite.bind(this);
+    this.deleteInvite = this.deleteInvite.bind(this);
   }
 
   componentDidMount() {
@@ -23,9 +25,52 @@ class App extends Component {
           invites: response.invite,
           guests: response.guests
         });
-        console.log(this.state);
       })
       .catch(error => console.log(error));
+  }
+
+  getNewInvite() {
+    var data = new FormData(document.querySelector("#new-invite-form"));
+    return {
+      name: data.get("newinvite"),
+      hasResponded: false,
+      response: null,
+      bringingGuest: null,
+      numberAttending: 0
+    };
+  }
+
+  getDeleteData() {
+    var data = new FormData(document.querySelector("#delete-invite-form"));
+    return {
+      name: data.get("deleted-name")
+    };
+  }
+
+  deleteInvite(event) {
+    event.preventDefault();
+    fetch("https://letmeknow-backend.herokuapp.com/invite/:id", {
+      method: "post",
+      body: JSON.stringify(this.getDeleteData()),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+  addNewInvite(event) {
+    event.preventDefault();
+    fetch("https://letmeknow-backend.herokuapp.com/invite", {
+      method: "post",
+      body: JSON.stringify(this.getNewInvite()),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   render() {
@@ -38,7 +83,12 @@ class App extends Component {
             <Route
               path="/host"
               component={() => (
-                <Dashboard invites={this.state.invites} guests={this.state.guests} />
+                <Dashboard
+                  invites={this.state.invites}
+                  guests={this.state.guests}
+                  add={this.addNewInvite}
+                  remove={this.deleteInvite}
+                />
               )}
             />
             <Route path="/guest" component={() => <RSVP data={this.state.invites} />} />

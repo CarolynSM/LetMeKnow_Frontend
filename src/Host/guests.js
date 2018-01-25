@@ -4,7 +4,6 @@ export default class GuestList extends React.Component {
   constructor(props) {
     super(props);
     this.createGuestTable = this.createGuestTable.bind(this);
-    console.log(this.props);
   }
 
   createGuestTable(item) {

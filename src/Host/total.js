@@ -4,7 +4,6 @@ export default class Total extends React.Component {
   constructor(props) {
     super(props);
     this.totalAttendees = this.totalAttendees.bind(this);
-    console.log(this.props);
   }
 
   totalAttendees(invites) {

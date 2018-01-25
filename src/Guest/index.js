@@ -4,8 +4,6 @@ export default class RSVP extends React.Component {
   constructor(props) {
     super(props);
     this.createInviteList = this.createInviteList.bind(this);
-    this.createInviteList = this.createInviteList.bind(this);
-    console.log(this.props);
   }
 
   handleSubmit(event) {

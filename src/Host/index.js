@@ -1,4 +1,5 @@
 import React from "react";
+import Back from "../Back.js";
 import GuestList from "./guests.js";
 import Invites from "./invites.js";
 import Chart from "./chart.js";
@@ -20,6 +21,7 @@ export default class Dashboard extends React.Component {
         <DeleteInvite data={this.props.invites} remove={this.props.remove} />
         <Chart data={this.props.invites} />
         <GuestList data={this.props.guests} />
+        <Back />
       </main>
     );
   }

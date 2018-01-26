@@ -80,7 +80,7 @@ class App extends Component {
         <Header />
         <Router>
           <div>
-            <Route path="/" component={Splash} />
+            <Route exact path="/" component={Splash} />
             <Route
               path="/host"
               component={() => (

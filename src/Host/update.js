@@ -12,7 +12,7 @@ const customStyles = {
   }
 };
 
-export default class DeleteInvite extends React.Component {
+export default class UpdateInvite extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -20,7 +20,6 @@ export default class DeleteInvite extends React.Component {
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.createInviteList = this.createInviteList.bind(this);
   }
 
   openModal() {
@@ -43,24 +42,35 @@ export default class DeleteInvite extends React.Component {
     return (
       <div>
         <button className="modal-open" onClick={this.openModal}>
-          Remove a Guest
+          Update a Guest Response
         </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="DeleteGuest Modal"
+          contentLabel="UpdateGuest Modal"
         >
-          <h2>Remove a Guest</h2>
-          <form id="delete-invite-form" onSubmit={this.props.remove}>
-            <label htmlFor="name">Find invite name:</label>
-            <select id="delete-name" name="name">
+          <h2>Update Guest Response</h2>
+          <form className="update-form" id="update-form" onSubmit={this.props.update}>
+            <label htmlFor="name">Find guest name:</label>
+            <select name="name" id="update-name">
               {this.props.data.map(this.createInviteList)}
             </select>
-            <input type="submit" id="rsvp-button" value="Remove Guest" />
+            <label htmlFor="response">Are they coming?</label>
+            <select name="response">
+              <option value="attending">Yeah!</option>
+              <option value="not attending">Nope</option>
+            </select>
+            <label htmlFor="guest">Are they bringing someone?</label>
+            <select name="guest">
+              <option value="true">Yes!</option>
+              <option value="false">No, flying solo.</option>
+            </select>
+            <label htmlFor="guest-name">What&#39;s their guest&#39;s name?</label>
+            <input type="text" name="guest-name" />
+            <input type="submit" id="rsvp-button" value="RSVP" />
           </form>
-          <button onClick={this.closeModal}>Cancel</button>
         </Modal>
       </div>
     );

@@ -15,6 +15,11 @@ class App extends Component {
     };
     this.addNewInvite = this.addNewInvite.bind(this);
     this.deleteInvite = this.deleteInvite.bind(this);
+    this.headCount = this.headCount.bind(this);
+    this.updateInvite = this.updateInvite.bind(this);
+    this.getInviteUpdate = this.getInviteUpdate.bind(this);
+    this.stringToBoolean = this.stringToBoolean.bind(this);
+    this.getGuestUpdate = this.getGuestUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -74,6 +79,81 @@ class App extends Component {
       });
   }
 
+  getUpdateId() {
+    var name = document.querySelector("#update-name");
+    return name.options[name.selectedIndex].id;
+  }
+
+  headCount(response, guestStatus) {
+    if (response === "not attending") {
+      return 0;
+    } else if (response === "attending" && guestStatus === false) {
+      return 1;
+    } else if (response === "attending" && guestStatus === true) {
+      return 2;
+    }
+  }
+
+  stringToBoolean(boolean) {
+    if (boolean === "true") {
+      return true;
+    } else if (boolean === "false") {
+      return false;
+    }
+  }
+
+  getInviteUpdate() {
+    var data = new FormData(document.querySelector("#update-form"));
+    var response = data.get("response");
+    var guestStatus = this.stringToBoolean(data.get("guest"));
+    return {
+      name: data.get("name"),
+      hasResponded: true,
+      response: response,
+      bringingGuest: guestStatus,
+      numberAttending: this.headCount(response, guestStatus)
+    };
+  }
+
+  getGuestUpdate() {
+    var data = new FormData(document.querySelector("#update-form"));
+    return {
+      name: data.get("guest-name"),
+      guestOf: data.get("name"),
+      guestOfId: this.getUpdateId()
+    };
+  }
+
+  updateInvite(event) {
+    event.preventDefault();
+    console.log(this.getUpdateId());
+    fetch("https://letmeknow-backend.herokuapp.com/invite/" + this.getUpdateId(), {
+      method: "put",
+      body: JSON.stringify(this.getInviteUpdate()),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(response => {
+        this.componentDidMount();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    console.log(this.getGuestUpdate());
+    fetch("https://letmeknow-backend.herokuapp.com/guests", {
+      method: "post",
+      body: JSON.stringify(this.getGuestUpdate()),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(() => this.componentDidMount())
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
@@ -89,6 +169,7 @@ class App extends Component {
                   guests={this.state.guests}
                   add={this.addNewInvite}
                   remove={this.deleteInvite}
+                  update={this.updateInvite}
                 />
               )}
             />

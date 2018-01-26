@@ -45,7 +45,7 @@ export default class AddInvite extends React.Component {
         >
           <h2>Add a Guest</h2>
           <form id="new-invite-form" onSubmit={this.props.add}>
-            <label for="name">Name:</label>
+            <label htmlFor="name">Name:</label>
             <input type="text" name="name" />
             <input type="submit" id="rsvp-button" value="Add Invite" />
           </form>

@@ -20,6 +20,9 @@ class App extends Component {
     this.getInviteUpdate = this.getInviteUpdate.bind(this);
     this.stringToBoolean = this.stringToBoolean.bind(this);
     this.getGuestUpdate = this.getGuestUpdate.bind(this);
+    this.getReplyId = this.getReplyId.bind(this);
+    this.updateReply = this.updateReply.bind(this);
+    this.getGuestReply = this.getGuestReply.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +71,16 @@ class App extends Component {
   deleteInvite(event) {
     event.preventDefault();
     fetch("https://letmeknow-backend.herokuapp.com/invite/" + this.getDeleteData(), {
+      method: "delete",
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(() => this.componentDidMount())
+      .catch(err => {
+        console.log(err);
+      });
+    fetch("https://letmeknow-backend.herokuapp.com/guests/" + this.getDeleteData(), {
       method: "delete",
       headers: new Headers({
         "Content-Type": "application/json"
@@ -154,6 +167,62 @@ class App extends Component {
       });
   }
 
+  getReplyId() {
+    var name = document.querySelector("#reply-name");
+    return name.options[name.selectedIndex].id;
+  }
+
+  getReplyData() {
+    var data = new FormData(document.querySelector("#reply-form"));
+    var response = data.get("rsvp");
+    var guestStatus = this.stringToBoolean(data.get("guest"));
+    return {
+      name: data.get("name"),
+      hasResponded: true,
+      response: response,
+      bringingGuest: guestStatus,
+      numberAttending: this.headCount(response, guestStatus)
+    };
+  }
+
+  getGuestReply() {
+    var data = new FormData(document.querySelector("#reply-form"));
+    return {
+      name: data.get("guest-name"),
+      guestOf: data.get("name"),
+      guestOfId: this.getReplyId()
+    };
+  }
+
+  updateReply(event) {
+    event.preventDefault();
+    console.log(this.getReplyData());
+    fetch("https://letmeknow-backend.herokuapp.com/invite/" + this.getReplyId(), {
+      method: "put",
+      body: JSON.stringify(this.getReplyData()),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(response => {
+        this.componentDidMount();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    fetch("https://letmeknow-backend.herokuapp.com/guests", {
+      method: "post",
+      body: JSON.stringify(this.getGuestReply()),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(() => this.componentDidMount())
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
@@ -173,7 +242,10 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/guest" component={() => <RSVP data={this.state.invites} />} />
+            <Route
+              path="/guest"
+              component={() => <RSVP data={this.state.invites} update={this.updateReply} />}
+            />
           </div>
         </Router>
         <Footer />

@@ -70,7 +70,7 @@ export default class UpdateInvite extends React.Component {
             </select>
             <label htmlFor="guest-name">What&#39;s their guest&#39;s name?</label>
             <input type="text" name="guest-name" />
-            <input type="submit" id="rsvp-button" value="Update RSVP" />
+            <input type="submit" id="update-button" value="Update RSVP" />
           </form>
           <button onClick={this.closeModal}>Cancel</button>
         </Modal>

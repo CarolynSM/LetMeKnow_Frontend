@@ -59,7 +59,7 @@ export default class DeleteInvite extends React.Component {
             <select id="delete-name" name="name">
               {this.props.data.map(this.createInviteList)}
             </select>
-            <input type="submit" id="rsvp-button" value="Remove Guest" />
+            <input type="submit" id="delete-button" value="Remove Guest" />
           </form>
           <button onClick={this.closeModal}>Cancel</button>
         </Modal>

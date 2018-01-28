@@ -76,3 +76,16 @@ option {
   font-size: 2rem;
   text-align: center;
 }
+
+#add-button,
+#update-button,
+#delete-button {
+  background-color: #8bc800;
+  border: 3px solid #8bc800;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 3rem 2rem;
+  padding: 1rem;
+}

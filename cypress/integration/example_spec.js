@@ -5,7 +5,6 @@ describe("Let me know app", function() {
       .get(".portal-button")
       .eq(0)
       .click();
-    cy.url().should("be", "https://letmeknow-csm.herokuapp.com/host");
     cy
       .get(".modal-open")
       .eq(0)
@@ -14,5 +13,13 @@ describe("Let me know app", function() {
       .get("input")
       .eq(0)
       .type("Test");
+    cy.get("#add-button").click();
+    cy
+      .get(".modal-open")
+      .eq(2)
+      .click();
+    cy.get("#delete-name").select("Test");
   });
 });
+
+// cy.url().should("be", "https://letmeknow-csm.herokuapp.com/host");

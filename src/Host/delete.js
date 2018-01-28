@@ -34,7 +34,7 @@ export default class DeleteInvite extends React.Component {
 
   createInviteList(item) {
     return (
-      <option key={item.id} id={item.id}>
+      <option key={item.id} id={item.id} value={item.name}>
         {item.name}
       </option>
     );

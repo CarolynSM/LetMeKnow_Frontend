@@ -52,7 +52,7 @@ export default class UpdateInvite extends React.Component {
           style={customStyles}
           contentLabel="UpdateGuest Modal"
         >
-          <h2>Update Guest Response</h2>
+          <h2>Update RSVP</h2>
           <form className="update-form" id="update-form" onSubmit={this.props.update}>
             <label htmlFor="name">Find guest name:</label>
             <select name="name" id="update-name">
@@ -70,8 +70,9 @@ export default class UpdateInvite extends React.Component {
             </select>
             <label htmlFor="guest-name">What&#39;s their guest&#39;s name?</label>
             <input type="text" name="guest-name" />
-            <input type="submit" id="rsvp-button" value="RSVP" />
+            <input type="submit" id="rsvp-button" value="Update RSVP" />
           </form>
+          <button onClick={this.closeModal}>Cancel</button>
         </Modal>
       </div>
     );

@@ -45,3 +45,34 @@
   margin-top: 0.7em;
   padding: 0.5em;
 }
+
+#update-form,
+#new-invite-form,
+#delete-invite-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#update-form label,
+#new-invite-form label,
+#delete-invite-form label {
+  font-size: 1rem;
+}
+
+#update-form select,
+#update-form input,
+#new-invite-form select,
+#new-invite-form input,
+#delete-invite-form select,
+#delete-invite-form input {
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0.5em;
+  padding: 0.5em;
+}
+
+option {
+  font-size: 2rem;
+  text-align: center;
+}

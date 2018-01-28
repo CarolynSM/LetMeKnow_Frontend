@@ -1,5 +1,6 @@
 import React from "react";
 import Back from "../Back.js";
+import "./guest.css";
 
 export default class RSVP extends React.Component {
   constructor(props) {
@@ -37,6 +38,7 @@ export default class RSVP extends React.Component {
           <input type="text" name="guest-name" />
           <input type="submit" id="rsvp-button" value="RSVP" />
         </form>
+        <hr />
         <Back />
       </div>
     );

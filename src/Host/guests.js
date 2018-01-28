@@ -1,4 +1,5 @@
 import React from "react";
+import "./host.css";
 
 export default class GuestList extends React.Component {
   constructor(props) {
@@ -17,9 +18,9 @@ export default class GuestList extends React.Component {
 
   render() {
     return (
-      <div id="guests-table">
+      <div id="guests-table-div">
         <h3>Plus Ones</h3>
-        <table>
+        <table id="guests-table">
           <tbody>
             <tr>
               <th>Name</th>

@@ -15,6 +15,7 @@ const customStyles = {
 export default class DeleteInvite extends React.Component {
   constructor() {
     super();
+    Modal.setAppElement(document.body);
     this.state = {
       modalIsOpen: false
     };

@@ -14,10 +14,10 @@ export default class Dashboard extends React.Component {
       <main>
         <Invites data={this.props.invites} />
         <Total data={this.props.invites} />
+        <Chart data={this.props.invites} />
         <AddInvite add={this.props.add} />
         <UpdateInvite data={this.props.invites} update={this.props.update} />
         <DeleteInvite data={this.props.invites} remove={this.props.remove} />
-        <Chart data={this.props.invites} />
         <GuestList data={this.props.guests} />
         <Back />
       </main>

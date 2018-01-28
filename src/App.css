@@ -1,23 +1,24 @@
 /* Color guide:
 blue: #01b5b6;
 green: #8bc800;
-yellow: #ffd71a; 
+yellow: #ffd71a;
 orange: #e78901;
 pink: #e90041;  */
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,700");
 
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  height: 65px;
+  padding: 15px;
   color: white;
 }
 
@@ -29,11 +30,22 @@ pink: #e90041;  */
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Universal Styles */
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+body,
+ul,
+li,
+small,
+button,
+label,
+select,
+option,
+input {
+  font-family: "Raleway", sans-serif;
 }

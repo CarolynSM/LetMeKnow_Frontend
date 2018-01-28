@@ -15,6 +15,7 @@ const customStyles = {
 export default class AddInvite extends React.Component {
   constructor() {
     super();
+    Modal.setAppElement(document.body);
     this.state = {
       modalIsOpen: false
     };

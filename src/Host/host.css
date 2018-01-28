@@ -1,0 +1,47 @@
+/* Tables */
+
+#invites-table-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#guests-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#invites-table,
+#guests-table {
+  border-spacing: 0;
+  display: table;
+}
+
+#invites-table td,
+#guests-table td {
+  border: 1px solid #ccc;
+}
+
+#invites-table td,
+#invites-table th,
+#guests-table td,
+#guests-table th {
+  font-size: 1.1em;
+  padding: 0.4em;
+}
+
+#invites-table-div h3,
+#guests-table-div h3 {
+  font-size: 1.5em;
+}
+
+/* Modal Buttons */
+.modal-open {
+  background-color: #ffd71a;
+  border: 3px solid #ffd71a;
+  border-radius: 8px;
+  color: black;
+  font-size: 1rem;
+  margin-top: 0.7em;
+  padding: 0.5em;
+}

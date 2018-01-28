@@ -15,6 +15,7 @@ const customStyles = {
 export default class UpdateInvite extends React.Component {
   constructor() {
     super();
+    Modal.setAppElement(document.body);
     this.state = {
       modalIsOpen: false
     };
@@ -42,7 +43,7 @@ export default class UpdateInvite extends React.Component {
     return (
       <div>
         <button className="modal-open" onClick={this.openModal}>
-          Update a Guest Response
+          Update an RSVP
         </button>
         <Modal
           isOpen={this.state.modalIsOpen}

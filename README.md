@@ -11,3 +11,5 @@ A simple RSVP form allows guest to update their response - which is immediately 
 - Backend: Express, CORS, Postgres, Knex.js (see backend repo [here](https://github.com/CarolynSM/LetMeKnow_Backend)
 - Frontend: React.js (including React Router, React Modal), Chart.js
 - End to End tests: Cypress
+
+See deployed app [here](https://letmeknow-csm.herokuapp.com/) (Built for mobile - adjust your screen!)

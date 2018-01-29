@@ -43,7 +43,7 @@ export default class DeleteInvite extends React.Component {
   render() {
     return (
       <div>
-        <button className="modal-open" onClick={this.openModal}>
+        <button id="delete-open" className="modal-open" onClick={this.openModal}>
           Remove a Guest
         </button>
         <Modal

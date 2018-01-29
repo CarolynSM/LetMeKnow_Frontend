@@ -1,6 +1,6 @@
 describe("Let me know app", function() {
   it("should work", function() {
-    cy.visit("https://letmeknow-csm.herokuapp.com/");
+    cy.visit("http://localhost:3000/");
     cy
       .get(".portal-button")
       .eq(0)
@@ -14,12 +14,16 @@ describe("Let me know app", function() {
       .eq(0)
       .type("Test");
     cy.get("#add-button").click();
+    cy.wait(500);
     cy
       .get(".modal-open")
       .eq(2)
       .click();
-    cy.get("#delete-name").select("Test");
+    cy
+      .get("form")
+      .children("select")
+      .select("Test");
+    cy.get("#delete-button").click();
+    cy.get("#invites-table").should("not.have.text", "Test");
   });
 });
-
-// cy.url().should("be", "https://letmeknow-csm.herokuapp.com/host");

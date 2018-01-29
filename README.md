@@ -8,7 +8,7 @@ The host dashboard allows hosts to view the current invite list, who's responsed
 A simple RSVP form allows guest to update their response - which is immediately available within the host dashboard.
 
 ### Technologies used:
-- Backend: Express, CORS, Postgres, Knex.js (see backend repo [here](https://github.com/CarolynSM/LetMeKnow_Backend)
+- Backend: Express, CORS, PostgreSQL, Knex.js (see backend repo [here](https://github.com/CarolynSM/LetMeKnow_Backend)
 - Frontend: React.js (including React Router, React Modal), Chart.js
 - End to End tests: Cypress
 

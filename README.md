@@ -4,7 +4,7 @@ Let me know is a mobile-first app that allows hosts to manage the guest list for
 
 See deployed app [here](https://letmeknow-csm.herokuapp.com/) (Built for mobile - adjust your screen!)
 
-### How it works:
+## How it works:
 The host dashboard allows hosts to view the current invite list, who's responded, is coming, and is bringing a friend. The list also generates a total head count.  An additional table at the bottom lists "Plus One's" and who they're coming with.
 
   ![lmk-1-smaller](https://user-images.githubusercontent.com/31423437/36393894-d1aff2be-156e-11e8-80cb-742a8feda9dd.gif)

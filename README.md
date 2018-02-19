@@ -18,9 +18,12 @@ A simple RSVP form allows guest to update their response - which is immediately 
 ![lmk-3-smaller](https://user-images.githubusercontent.com/31423437/36393977-45d9d006-156f-11e8-905e-b2bbcdc95d3b.gif)
 
 
-### Technologies used:
-- Backend: Express, CORS, PostgreSQL, Knex.js (see backend repo [here](https://github.com/CarolynSM/LetMeKnow_Backend)
+## Technologies used
+- Backend: Express, CORS, PostgreSQL, Knex.js (see backend repo [here](https://github.com/CarolynSM/LetMeKnow_Backend))
 - Frontend: React.js (including React Router, React Modal), Chart.js
 - End to End tests: Cypress
 
+## License
+MIT License
+Copyright (c) 2018 Carolyn Selheim-Miller
 

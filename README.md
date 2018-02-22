@@ -34,8 +34,8 @@ For support, please [open a new issue](https://github.com/CarolynSM/LetMeKnow_Fr
 Utilize [Github Flow](https://guides.github.com/introduction/flow/) to contribute. Create a branch, add commits, and open a pull request.
 
 ### Author:
-[Carolyn Selheim-Miller](seecarolyncode.com)
-[Carolyn Selheim-Miller on LinkedIn](https://www.linkedin.com/in/carolynselheimmiller)
+  [Carolyn Selheim-Miller](seecarolyncode.com)
+  [Carolyn Selheim-Miller on LinkedIn](https://www.linkedin.com/in/carolynselheimmiller)
 
 ### License
 MIT License

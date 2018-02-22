@@ -35,6 +35,7 @@ Utilize [Github Flow](https://guides.github.com/introduction/flow/) to contribut
 
 ### Author:
   [Carolyn Selheim-Miller](seecarolyncode.com)
+  
   [Carolyn Selheim-Miller on LinkedIn](https://www.linkedin.com/in/carolynselheimmiller)
 
 ### License
